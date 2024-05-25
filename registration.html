@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="stylereg.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+
+            // Validate email
+            var email = document.forms["registrationForm"]["email"].value;
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            // Validate phone number
+            var phone = document.forms["registrationForm"]["phone"].value;
+            var phonePattern = /^\d{10}$/;
+            if (!phonePattern.test(phone)) {
+                alert("Please enter a valid 10-digit phone number.");
+                return false;
+            }
+
+            document.forms["registrationForm"].submit();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <form name="registrationForm" action="" method="post" onsubmit="validateForm(event)">
+            <h2 style="font-weight: 900; font-size: 1.2cm;text-align: center;letter-spacing: 1.2px;text-shadow: 0px 1px 0px yellowgreen,
+            0px 2px 0px yellowgreen,
+            0px 3px 0px yellowgreen,
+            0px 4px 0px yellowgreen,
+            0px 5px 0px yellowgreen,
+            0px 6px 0px yellowgreen,
+            0px 7px 0px yellowgreen;">REGISTRATION</h2>
+            <div class="content">
+                <div class="input-box">
+                    <label for="name">Full Name</label>
+                    <input type="text" placeholder="Enter Full Name" name="name" required>
+                </div>
+                <div class="input-box">
+                    <label for="username">Username</label>
+                    <input type="text" placeholder="Enter Username" name="uname" required>
+                </div>
+                <div class="input-box">
+                    <label for="email">Email</label>
+                    <input type="email" placeholder="Enter Email Address" name="email" required>
+                </div>
+                <div class="input-box">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" placeholder="Enter Phone Number" name="phone" required>
+                </div>
+                <div class="input-box">
+                    <label for="password">Password</label>
+                    <input type="password" placeholder="Enter Password" name="password" required>
+                </div>
+                <div class="input-box">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" placeholder="Confirm your Password" name="confirmPassword" required>
+                </div>
+                <span class="gender-title">Gender</span>
+                <div class="gender-category">
+                    <input type="radio" name="gender" id="male">
+                    <label for="male">Male</label>
+                    <input type="radio" name="gender" id="female">
+                    <label for="female">Female</label>
+                </div>
+            </div>
+            <div class="alert">
+                <p>By clicking Sign Up, you agree to our <a href="#">Terms,</a><a href="#">Privacy Policy</a> and <a href="#">Cookies Policy.</a> 
+                    You may receive SMS notifications from us and can opt out at any time.
+                </p>
+            </div>
+            <div class="button-container">
+                <button type="submit">Register</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
